@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meata charset = "utf-8">
+<title>Online Music Store</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<?php session_start(); ?>
+<div id="topbar">Current Orders
+<div id="login"> <a href="musicstore.php">Back to Front</a></div>
+<div id="currently"> Current User, <?php echo $_SESSION["CUSTOMERNAME"]; ?>  </div>
+</div></div>
+<?php
+
+$conn = oci_connect('marckost', '5boat90CAR', '(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(Host=db1.chpc.ndsu.nodak.edu)(Port=1521)))(CONNECT_DATA=(SID=cs)))');
+
+$query = "SELECT s.songid , s.songName, i.ordernumber from song s
+INNER JOIN ITEM i on s.songID = i.songID
+INNER JOIN ShoppingCart sc on i.orderNumber = sc.orderNumber
+INNER JOIN customer c on sc.CUSTOMERID = c.CUSTOMERID
+WHERE c.CUSTOMERID = " . $_SESSION["CUSTOMERID"];
+
+$stid = oci_parse($conn,$query);
+oci_execute($stid,OCI_DEFAULT);
+
+
+//iterate through each row
+while ($row = oci_fetch_array($stid,OCI_ASSOC)) 
+{
+   //iterate through each item in the row and echo it
+   foreach ($row as $item) 
+   {
+      echo $item.' '; 
+   }
+   echo '<br/>';
+}
+
+oci_free_statement($stid);
+oci_close($conn);
+
+?>
+
+
+</body>
+</html>
