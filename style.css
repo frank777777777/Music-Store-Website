@@ -1,0 +1,72 @@
+#topbar {
+	background-color: #45aaed;
+	font-size: 32pt;
+	font-weight: bold;
+	font-family: arial;
+}
+
+#login {
+	font-size: 12pt;
+	position: fixed;
+	right: 18px;
+	top: 22px;
+}
+
+#logout {
+	font-size: 12pt;
+	position: fixed;
+	right: 18px;
+	top: 22px;
+}
+
+#signup {
+	font-size: 12pt;
+	position: fixed;
+	right: 80px;
+	top: 22px;
+}
+
+#welcome {
+	font-size: 12pt;
+	position: fixed;
+	right: 240px;
+	top: 22px;
+}
+
+#orders {
+	font-size: 12pt;
+	position: fixed;
+	right: 110px;
+	top: 22px;
+}
+
+#currently {
+	font-size: 12pt;
+	position: fixed;
+	right: 200px;
+	top: 22px;
+}
+
+#search {
+	background-color: #86df8d;
+	width: 400px;
+	font-size: 24pt;
+	font-weight: bold;
+	font-family: arial;
+	position: fixed;
+	top: 120px;
+}
+
+#songlist {
+	position: relative;
+	top: 160px;
+	font-size: 10pt;
+    font-weight: normal;
+	
+}
+
+#wrapper {
+	height: 150%;
+	width: 100%;
+}
+
